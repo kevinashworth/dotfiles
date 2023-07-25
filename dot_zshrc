@@ -114,12 +114,14 @@ bindkey "^[[Z" autosuggest-accept # shift + tab
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+################ Above this line, end of default oh-my-zsh.
+
 alias ls="exa"
 alias la="exa -a"
 alias ll="exa -l"
 alias lla="exa -la"
-
-################ Above this line, end of default oh-my-zsh.
+alias python=/usr/bin/python3
 
 # Added 2023-06-10.
 path+=($HOME/bin)
