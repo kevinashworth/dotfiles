@@ -35,3 +35,5 @@
 	go-prev = checkout HEAD^1
 	type = cat-file -t
 	datetag = '!git tag `date "+%Y%m%d%H%M"`'
+[push]
+	autoSetupRemote = true
