@@ -147,3 +147,19 @@ tabcolor $(jot -r 1 0 255) $(jot -r 1 0 255) $(jot -r 1 0 255)
 
 # Added 2024-02-24 after switching to zoxide
 eval "$(zoxide init zsh)"
+
+# bun completions
+[ -s "/Users/kevin/.bun/_bun" ] && source "/Users/kevin/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# added 2024-07-07 after installing Android Studio. See https://docs.expo.dev/workflow/android-studio-emulator/
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+export ANDROID_HOME=/Volumes/Xavier/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# added 2024-07-08 as I begin to worry about space on my Macintosh HD drive
+export CYPRESS_CACHE_FOLDER=/Volumes/Xavier/cypress_cache
