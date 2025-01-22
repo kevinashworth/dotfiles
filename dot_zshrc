@@ -122,7 +122,7 @@ alias la="eza -a"
 alias ll="eza -l"
 alias lla="eza -las modified"
 alias llr="eza -alrs modified"
-alias python=/usr/bin/python3
+alias python=python3
 alias rm="trash -vF"
 
 # Added 2023-06-10.
@@ -163,3 +163,16 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # added 2024-07-08 as I begin to worry about space on my Macintosh HD drive
 export CYPRESS_CACHE_FOLDER=/Volumes/Xavier/cypress_cache
+
+# Added 2024-02-24 after switching to zoxide
+eval "$(zoxide init zsh)"
+
+# Added 2024-11-29 on a whim
+export HOMEBREW_INSTALL_BADGE="☕️"
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
+# Added 2025-01-22
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
