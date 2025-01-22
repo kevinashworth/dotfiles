@@ -145,9 +145,6 @@ function tabcolor {
 
 tabcolor $(jot -r 1 0 255) $(jot -r 1 0 255) $(jot -r 1 0 255)
 
-# Added 2024-02-24 after switching to zoxide
-eval "$(zoxide init zsh)"
-
 # bun completions
 [ -s "/Users/kevin/.bun/_bun" ] && source "/Users/kevin/.bun/_bun"
 
