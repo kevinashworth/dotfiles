@@ -23,20 +23,36 @@
 	top = shortlog -s -n
 	type = cat-file -t
 
+[branch]
+	sort = -committerdate
+
+[column]
+	ui = auto
+
 [commit]
 	template = /Users/kevin/.stCommitMsg
+	verbose = true
 
 [core]
 	excludesfile = /Users/kevin/.gitignore_global
 
 [diff]
+	algorithm = histogram
 	colorMoved = zebra
 	compactionHeuristic = true
+	mnemonicPrefix = true
+	renames = true
 	tool = sourcetree
+
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
+
+[fetch]
+	all = true
+	prune = true
+	pruneTags = true
 
 [format]
 	pretty = oneline
@@ -45,7 +61,7 @@
 	gitbutlerCommitter = 1
 
 [help]
-	autocorrect = 1
+	autocorrect = prompt
 
 [init]
 	defaultBranch = main
@@ -62,9 +78,14 @@
 
 [push]
 	autoSetupRemote = true
+	default = simple
+	followTags = true
 
 [rebase]
 	autoSquash = true
+
+[tag]
+	sort = version:refname
 
 [ui]
 	color = auto
