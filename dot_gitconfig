@@ -47,7 +47,6 @@
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
 
 [fetch]
 	all = true
