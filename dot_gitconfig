@@ -1,6 +1,6 @@
 [alias]
+	aliases = config --get-regexp '^alias\\.'
 	br = branch
-	ci = commit
 	co = checkout
 	current = log --pretty=format:\"%h %ad | %s%d [%an]\" --date=short -n1
 	datetag = '!git tag `date "+%Y%m%d%H%M"`'
@@ -14,10 +14,12 @@
 	last = log -n 1 -p
 	lg = log --oneline --decorate --all --graph
 	mine = log --pretty=format:\"[ %h ] %ad - %s%d\" --no-merges --date=short --author=kevinashworth
+	pr = pull --rebase
 	push-all = push --recurse-submodules=on-demand
 	s = status --short
 	slap = blame -w
 	st = status
+	stashgrep = "!f() { for i in `git stash list --format=\"%gd\"` ; do git stash show -p $i | grep -H --label=\"$i\" \"$@\" ; done ; }; f"
 	state = status -sb
 	today = log --pretty=format:\"* %s%d [%h]\" --no-merges --date=short --author=kevinashworth --since=\"$DATE 00:00:00\" --until=\"$DATE 24:00:00\"
 	top = shortlog -s -n
@@ -27,13 +29,14 @@
 	sort = -committerdate
 
 [column]
-	ui = auto
+	ui = never
 
 [commit]
 	template = /Users/kevin/.stCommitMsg
 	verbose = true
 
 [core]
+	editor = "code --wait $@"
 	excludesfile = /Users/kevin/.gitignore_global
 
 [diff]
@@ -44,20 +47,23 @@
 	renames = true
 	tool = sourcetree
 
-
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
 
 [fetch]
 	all = true
 	prune = true
 	pruneTags = true
 
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
 [format]
 	pretty = oneline
-
-[gitbutler]
-	gitbutlerCommitter = 1
 
 [help]
 	autocorrect = prompt
