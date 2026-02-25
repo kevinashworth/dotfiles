@@ -137,13 +137,33 @@ source ~/.iterm2_shell_integration.zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # For random color with each new tab. https://stackoverflow.com/a/73631440/7082724
-function tabcolor {
-  echo -n -e "\033]6;1;bg;red;brightness;$1\a"
-  echo -n -e "\033]6;1;bg;green;brightness;$2\a"
-  echo -n -e "\033]6;1;bg;blue;brightness;$3\a"
-}
+# function tabcolor {
+#   echo -n -e "\033]6;1;bg;red;brightness;$1\a"
+#   echo -n -e "\033]6;1;bg;green;brightness;$2\a"
+#   echo -n -e "\033]6;1;bg;blue;brightness;$3\a"
+# }
+# tabcolor $(jot -r 1 0 255) $(jot -r 1 0 255) $(jot -r 1 0 255)
 
-tabcolor $(jot -r 1 0 255) $(jot -r 1 0 255) $(jot -r 1 0 255)
+# Added 2025-03-03
+# For color based on the current directory. The below is from LM Studio
+function tabcolor {
+  local seed=$(echo -n "$PWD" | md5sum | awk '{ print $1 }')
+  local red=$(echo "$seed" | cut -c1-8 | sed 's/[^0-9]*//g')
+  local green=$(echo "$seed" | cut -c2-9 | sed 's/[^0-9]*//g')
+  local blue=$(echo "$seed" | cut -c3-10 | sed 's/[^0-9]*//g')
+  red=$(($red % 256))
+  green=$(($green % 256))
+  blue=$(($blue % 256))
+  echo -n -e "\033]6;1;bg;red;brightness;$red\a"
+  echo -n -e "\033]6;1;bg;green;brightness;$green\a"
+  echo -n -e "\033]6;1;bg;blue;brightness;$blue\a"
+}
+# Initial call to tabcolor to set the color of the current directory
+tabcolor
+# Run tabcolor when the directory changes
+chpwd() {
+  tabcolor
+}
 
 # bun completions
 [ -s "/Users/kevin/.bun/_bun" ] && source "/Users/kevin/.bun/_bun"
