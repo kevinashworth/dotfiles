@@ -18,3 +18,6 @@ export ANDROID_EMULATOR_HOME=/Volumes/Xavier/Android/.android/
 
 # Added 2025-08-15 by `rbenv init`:
 eval "$(rbenv init - --no-rehash zsh)"
+
+# Added 2026-01-06 per https://github.com/toplenboren/simple-git-hooks#i-am-getting-npx-command-not-found-error-in-a-gui-git-client
+export SIMPLE_GIT_HOOKS_RC="$HOME/.simple-git-hooks.rc"
