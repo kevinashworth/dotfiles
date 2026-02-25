@@ -15,3 +15,6 @@ export ANDROID_EMULATOR_HOME=/Volumes/Xavier/Android/.android/
 
 # Above not honored by Android Studio, would re-create ~/.android, so I also did this from command line:
 # ln -s $ANDROID_USER_HOME ~/.android
+
+# Added 2025-08-15 by `rbenv init`:
+eval "$(rbenv init - --no-rehash zsh)"
