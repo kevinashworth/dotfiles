@@ -2,8 +2,8 @@
 	aliases = config --get-regexp '^alias\\.'
 	br = branch
 
-  # BRANCHES-BY
-  branches-by = "!git-branches-by.sh"
+	# BRANCHES-BY
+	branches-by = "!git-branches-by.sh"
 
 	co = checkout
 	current = log --pretty=format:\"%h %ad | %s%d [%an]\" --date=short -n1
