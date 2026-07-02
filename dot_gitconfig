@@ -1,6 +1,10 @@
 [alias]
 	aliases = config --get-regexp '^alias\\.'
 	br = branch
+
+  # BRANCHES-BY
+  branches-by = "!git-branches-by.sh"
+
 	co = checkout
 	current = log --pretty=format:\"%h %ad | %s%d [%an]\" --date=short -n1
 	datetag = '!git tag `date "+%Y%m%d%H%M"`'
@@ -10,6 +14,12 @@
 	go-next = checkout HEAD@{1}
 	go-prev = checkout HEAD^1
 	hist = log --pretty=format:'%h %an %Cred%ar %Cgreen%s' --date=short --decorate
+
+	# HOLD - see https://assistant.kagi.com/chat/eff97fec-f244-4fdc-aeea-e1425da309de
+	# hold = "!git-hold.sh"
+	hold = "!sh -c 'git branch -m \"$1\" \"hold/$1\"' -"
+	unhold = "!sh -c 'git branch -m \"hold/$1\" \"$1\"' -"
+
 	includes = branch --contains
 	last = log -n 1 -p
 	lg = log --oneline --decorate --all --graph
@@ -38,6 +48,7 @@
 [core]
 	editor = "code --wait $@"
 	excludesfile = /Users/kevin/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RF
 
 [diff]
 	algorithm = histogram
@@ -71,6 +82,9 @@
 [init]
 	defaultBranch = main
 
+[interactive]
+	diffFilter = diff-so-fancy --patch
+
 [log]
 	abbrevCommit = true
 	date = relative
@@ -96,5 +110,5 @@
 	color = auto
 
 [user]
-	email = kevinashworth@yahoo.com
+	email = 1218844+kevinashworth@users.noreply.github.com
 	name = Kevin Ashworth

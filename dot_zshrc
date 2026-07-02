@@ -82,6 +82,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # plugins=(zsh-syntax-highlighting)
 plugins=(history sudo zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting)
 
+# Added 2025-03-24, per https://stackoverflow.com/a/71271754/7082724
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 source $ZSH/oh-my-zsh.sh
 
 bindkey "^[OA" history-substring-search-up
