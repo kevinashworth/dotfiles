@@ -126,7 +126,7 @@ alias ll="eza -l"
 alias lla="eza -las modified"
 alias llr="eza -alrs modified"
 alias python=python3
-alias rm="trash -vF"
+alias rm="echo Use 'del' in Finder, or the full path i.e. '/bin/rm', or use 'trash'."
 
 # Added 2023-06-10
 path+=($HOME/bin)
