@@ -196,3 +196,6 @@ export PATH="$PATH:/Users/kevin/.cache/lm-studio/bin"
 export PATH=/Users/kevin/.meteor:$PATH
 # Added 2026-06-02 after installing postgresql@17
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+
+# Added 2025-10-13 after installing Maestro
+export MAESTRO_CLI_NO_ANALYTICS="No, thank you."
