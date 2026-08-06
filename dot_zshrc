@@ -138,16 +138,8 @@ source ~/.iterm2_shell_integration.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# For random color with each new tab. https://stackoverflow.com/a/73631440/7082724
-# function tabcolor {
-#   echo -n -e "\033]6;1;bg;red;brightness;$1\a"
-#   echo -n -e "\033]6;1;bg;green;brightness;$2\a"
-#   echo -n -e "\033]6;1;bg;blue;brightness;$3\a"
-# }
-# tabcolor $(jot -r 1 0 255) $(jot -r 1 0 255) $(jot -r 1 0 255)
-
 # Added 2025-03-03
-# For color based on the current directory. The below is from LM Studio
+# For random tab color based on the current directory. iTerm only.
 function tabcolor {
   local seed=$(echo -n "$PWD" | md5sum | awk '{ print $1 }')
   local red=$(echo "$seed" | cut -c1-8 | sed 's/[^0-9]*//g')
