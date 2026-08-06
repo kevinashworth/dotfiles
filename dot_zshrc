@@ -127,7 +127,7 @@ alias llr="eza -alrs modified"
 alias python=python3
 alias rm="trash -vF"
 
-# Added 2023-06-10.
+# Added 2023-06-10
 path+=($HOME/bin)
 # Above is append to PATH. Could also prepend like this:
 # path=($HOME/bin $path)
@@ -192,3 +192,7 @@ source <(fzf --zsh)
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/kevin/.cache/lm-studio/bin"
+# Added 2025-09-07 by Meteor install script
+export PATH=/Users/kevin/.meteor:$PATH
+# Added 2026-06-02 after installing postgresql@17
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
