@@ -159,6 +159,35 @@ chpwd() {
   tabcolor
 }
 
+# Added 2026-07-29
+# do not show badge if command starts with a HIDE_BADGE_CMDS word. iTerm only.
+# ============== # start
+autoload -Uz add-zsh-hook
+
+local HIDE_BADGE_CMDS=(btop exit nono opencode)
+
+function iterm2_print_user_vars() {
+  local cmd
+  cmd=$(fc -ln -1 2>/dev/null | sed 's/^[[:space:]]*//')
+
+  local first="${cmd%% *}"
+  if ((${HIDE_BADGE_CMDS[(Ie)$first]})); then
+    cmd=""
+  fi
+
+  iterm2_set_user_var badgeCmd "$cmd"
+}
+
+function preexec_badge_blank() {
+  local first="${1%% *}"
+  if ((${HIDE_BADGE_CMDS[(Ie)$first]})); then
+    iterm2_set_user_var badgeCmd ""
+  fi
+}
+
+add-zsh-hook preexec preexec_badge_blank
+# ============== # end
+
 # bun completions
 [ -s "/Users/kevin/.bun/_bun" ] && source "/Users/kevin/.bun/_bun"
 
