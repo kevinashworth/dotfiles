@@ -86,6 +86,7 @@ plugins=(history sudo zsh-autosuggestions zsh-history-substring-search zsh-synta
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 source $ZSH/oh-my-zsh.sh
 
+# See https://github.com/zsh-users/zsh-history-substring-search#usage
 bindkey "^[OA" history-substring-search-up
 bindkey "^[OB" history-substring-search-down
 
