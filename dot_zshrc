@@ -221,3 +221,9 @@ export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 
 # Added 2025-10-13 after installing Maestro
 export MAESTRO_CLI_NO_ANALYTICS="No, thank you."
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/kevin/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
