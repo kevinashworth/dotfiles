@@ -120,13 +120,26 @@ bindkey "^[[Z" autosuggest-accept # shift + tab
 
 ################ Above this line, end of default oh-my-zsh.
 
+################ ALIASES start
+
 alias ls="eza"
 alias la="eza -a"
 alias ll="eza -l"
 alias lla="eza -las modified"
-alias llr="eza -alrs modified"
+alias llr="eza -las modified -r"
+alias lll="eza --long --header --icons --git"
+
 alias python=python3
+
 alias rm="echo Use 'del' in Finder, or the full path i.e. '/bin/rm', or use 'trash'."
+
+alias mynono='sleep 1 && nono run --profile kevinopencode --allow-cwd --strict-broker-path -- opencode'
+
+# Added 2026-08-27 per https://snyk.io/articles/npm-security-best-practices-shai-hulud-attack/
+alias npm='npq-hero'
+alias pnpm='NPQ_PKG_MGR=pnpm npq-hero'
+
+################ ALIASES end
 
 # Added 2023-06-10
 path+=($HOME/bin)
@@ -196,24 +209,20 @@ add-zsh-hook preexec preexec_badge_blank
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$PATH:$BUN_INSTALL/bin"
 
-# added 2024-07-08 as I begin to worry about space on my Macintosh HD drive
-export CYPRESS_CACHE_FOLDER=/Volumes/Xavier/cypress_cache
-
 # Added 2024-02-24 after switching to zoxide
 eval "$(zoxide init zsh)"
 
 # Added 2024-11-29 on a whim
 export HOMEBREW_INSTALL_BADGE="☕️"
 
-# Load Angular CLI autocompletion.
-source <(ng completion script)
-
 # Added 2025-01-22
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/kevin/.cache/lm-studio/bin"
+# export PATH="$PATH:/Users/kevin/.cache/lm-studio/bin"
+# 2026-09-02. Saying nope to this. Moved the lms file to my ~/bin folder.
+
 # Added 2025-09-07 by Meteor install script
 export PATH=/Users/kevin/.meteor:$PATH
 # Added 2026-06-02 after installing postgresql@17
@@ -227,3 +236,15 @@ fpath=(/Users/kevin/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+# Added 2026-08-26 when I ran `pnpm setup` because pnpm was not working. It had been installed but I wasn't using it? Had partially uninstalled it? Hmm.
+# pnpm
+export PNPM_HOME="/Users/kevin/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
+
+# Added by Unsloth installer
+export PATH="$HOME/.local/bin:$PATH"
