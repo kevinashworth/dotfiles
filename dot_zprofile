@@ -1,17 +1,21 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# 2026-09-02 commented out the demarcated chunk below re Java and Android for now
+
 # added 2024-07-07 after installing Android Studio. See https://docs.expo.dev/workflow/android-studio-emulator/
 # on a separate disk, it does not work with Expo Orbit ?
 # https://developer.android.com/tools/variables#envar
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+# ~ ~ ~ \
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 
-export ANDROID_HOME=/Volumes/Xavier/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
-export ANDROID_SDK_HOME=/Volumes/Xavier/Android/
-export ANDROID_USER_HOME=/Volumes/Xavier/Android/.android/
-export ANDROID_EMULATOR_HOME=/Volumes/Xavier/Android/.android/
+# export ANDROID_HOME=/Volumes/Xavier/Android/sdk
+# export PATH=$PATH:$ANDROID_HOME/emulator
+# export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
+# export ANDROID_SDK_HOME=/Volumes/Xavier/Android/
+# export ANDROID_USER_HOME=/Volumes/Xavier/Android/.android/
+# export ANDROID_EMULATOR_HOME=/Volumes/Xavier/Android/.android/
+# ~ ~ ~ /
 
 # Above not honored by Android Studio, would re-create ~/.android, so I also did this from command line:
 # ln -s $ANDROID_USER_HOME ~/.android
